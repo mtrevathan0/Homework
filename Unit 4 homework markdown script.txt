@@ -1,0 +1,44 @@
+---
+title: "Live session Unit 04 assignment"
+author: "Matthew Trevathan"
+date: "June 4, 2018"
+output: html_document
+---
+
+#1. FiveThirtyEight Data
+a. install.packages("fivethirtyeight")
+b. data(package = "fivethirtyeight")
+   df <- fivethirtyeight::college_all_ages
+c. vignette("fivethirtyeight", package = "fivethirtyeight")
+d. R commands for dimensions and column names
+
+```{r, echo=TRUE}
+df <- fivethirtyeight::college_all_ages
+dim(df)
+names(df)
+```
+
+#2. Data Summary
+a. Column names and columns with rows
+```{r, echo=TRUE}
+names(df)
+ncol(df)
+```
+
+b. Count of unique major category
+```{r, echo=TRUE}
+df <- fivethirtyeight::college_all_ages
+library(plyr)
+count(df$major_category)
+major_count <- count(df$major_category)
+```
+
+c. Barplot of major categories
+```{r, echo=TRUE}
+df <- fivethirtyeight::college_all_ages
+barplot(table(df$major_category), ylab='Frequency', main="Barplot of the frequency of major categories", horiz = TRUE)
+```
+
+d. write.csv(df, file="Major_categories.csv", row.names = FALSE)
+
+#3. Codebook
